@@ -2,7 +2,7 @@ Config = {}
 
 
 Config.JobCenterZone = {
-    coords = vector3(-1293.48, -570.69, 30.57),
+    coords = vector3(-266.31, -965.78, 31.22),
     length = 4.0,
     width = 4.0,
     minZ = 29.0,
@@ -12,7 +12,7 @@ Config.JobCenterZone = {
 
 Config.JobCenterNPC = {
     model = "cs_bankman",
-    coords = vector4(-1293.48, -570.69, 30.57, 346.96),
+    coords = vector4(-266.32, -965.78, 31.22, 220.66),
     scenario = "WORLD_HUMAN_CLIPBOARD" 
 }
 
