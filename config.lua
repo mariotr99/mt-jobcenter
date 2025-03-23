@@ -11,9 +11,9 @@ Config.JobCenterZone = {
 }
 
 Config.JobCenterNPC = {
-    model = "cs_bankman", -- Puedes cambiarlo a cualquier modelo válido de ped
+    model = "cs_bankman",
     coords = vector4(-1293.48, -570.69, 30.57, 346.96),
-    scenario = "WORLD_HUMAN_CLIPBOARD" -- O una animación como "amb@world_human_hang_out_street@male_c@base"
+    scenario = "WORLD_HUMAN_CLIPBOARD" 
 }
 
 
