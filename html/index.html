@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="jobcenter-box">
+        <div id="header-container">
+            <div id="header">
+                <h2>Centro de Empleo</h2>
+                <div id="close-btn">✖</div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="sidebar">
+                <div class="tab active" data-tab="ciudadano">Ciudadano</div>
+                <div class="tab" data-tab="trabajos">Trabajos</div>
+                <div class="tab" data-tab="documentacion">Documentación</div>
+            </div>
+
+            <div id="content">
+            </div>
+        </div>
+    </div>
+
+    <template id="template-ciudadano">
+        <div class="citizen-container">
+            <div class="top-sections-container">
+                <div class="info-section id-section">
+                    <h3>Información de Identificación</h3>
+                    <div class="info-card">
+                        <div class="info-row">
+                            <div class="info-label">Citizen ID:</div>
+                            <div class="info-value" id="char-citizenid"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Nombre Completo:</div>
+                            <div class="info-value" id="char-fullname"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Fecha de Nacimiento:</div>
+                            <div class="info-value" id="char-birthdate"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Género:</div>
+                            <div class="info-value" id="char-gender"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Nacionalidad:</div>
+                            <div class="info-value" id="char-nationality"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Teléfono:</div>
+                            <div class="info-value" id="char-phone"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="info-section half-height">
+                        <h3>Información Laboral</h3>
+                        <div class="info-card">
+                            <div class="info-row">
+                                <div class="info-label">Trabajo:</div>
+                                <div class="info-value" id="char-job"></div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Posición:</div>
+                                <div class="info-value" id="char-grade"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section half-height">
+                        <h3>Información Financiera</h3>
+                        <div class="info-card">
+                            <div class="info-row">
+                                <div class="info-label">Efectivo:</div>
+                                <div class="info-value" id="char-cash"></div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Banco:</div>
+                                <div class="info-value" id="char-bank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-sections-container">
+                <div class="info-section">
+                    <h3>Apartamentos</h3>
+                    <div class="info-card" id="apartments-container">
+                        <div class="loading">Cargando apartamentos...</div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>Vehículos</h3>
+                    <div class="info-card" id="vehicles-container">
+                        <div class="loading">Cargando vehículos...</div>
+                        <table class="vehicles-table" id="vehicles-table" style="display: none;">
+                            <thead>
+                                <tr>
+                                    <th>Modelo</th>
+                                    <th>Matrícula</th>
+                                    <th>Garaje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-job-item">
+        <div class="job-item">
+            <img class="job-item-image" alt="Imagen del trabajo" />
+            <div class="job-text">
+                <h3 class="job-label"></h3>
+                <p class="job-description"></p>
+            </div>
+            <button class="job-view-button">Ver</button>
+        </div>
+    </template>
+    
+    
+
+    <template id="template-job-details">
+        <div class="job-details">
+            <div class="job-details-header">
+                <h2 class="job-details-label"></h2>
+                <p class="job-details-description"></p>
+            </div>
+    
+            <div class="job-details-body">
+                <img class="job-details-image" alt="Imagen del trabajo" />
+                <p class="job-details-text"></p>
+            </div>
+    
+            <div class="job-details-footer">
+                <button id="back-to-jobs">
+                    <span class="arrow">&#8592;</span> Regresar
+                </button>
+                <button id="assign-job-button" class="assign-job-button">Solicitar Trabajo</button>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-documentacion">
+        <div class="documentacion-container">
+            <div class="doc-col">
+                <h3>Licencias del Jugador</h3>
+                <ul id="license-list" class="info-list">
+                </ul>
+            </div>
+            <div class="doc-col">
+                <h3>Solicitar Documentos</h3>
+                <ul class="info-list">
+                    <li>
+                        DNI
+                        <button class="solicitar-btn" data-doc="idcard">Solicitar</button>
+                    </li>
+                    <li>
+                        Licencia de Conducir
+                        <button class="solicitar-btn" data-doc="driver">Solicitar</button>
+                    </li>
+                    <li>
+                        Licencia de Armas
+                        <button class="solicitar-btn" data-doc="weapon">Solicitar</button>
+                    </li>
+                                    </ul>
+            </div>
+            
+        </div>
+    </template>
+    
+
+
+    <script src="script.js"></script>
+</body>
+</html>
